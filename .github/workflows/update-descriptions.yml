@@ -1,0 +1,48 @@
+name: Update Repo Descriptions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update danmu-api
+        run: |
+          curl -s -X PATCH \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/FNY666/danmu-api \
+            -d '{"description":"弹幕 API 服务"}'
+
+      - name: Update danmu-api1
+        run: |
+          curl -s -X PATCH \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/FNY666/danmu-api1 \
+            -d '{"description":"弹幕 API 服务（备用版本）"}'
+
+      - name: Update stremio-addon-douban
+        run: |
+          curl -s -X PATCH \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/FNY666/stremio-addon-douban \
+            -d '{"description":"Stremio 豆瓣评分插件"}'
+
+      - name: Update d1-get-started
+        run: |
+          curl -s -X PATCH \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/FNY666/d1-get-started \
+            -d '{"description":"Cloudflare D1 数据库入门示例"}'
+
+      - name: Update d1-template
+        run: |
+          curl -s -X PATCH \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/FNY666/d1-template \
+            -d '{"description":"Cloudflare D1 数据库项目模板"}'
